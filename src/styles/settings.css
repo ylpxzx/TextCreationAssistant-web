@@ -1,0 +1,16 @@
+.settings-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.settings-form-actions .button:only-child {
+  margin-left: auto;
+}
+
+.form-hint {
+  margin: -7px 0 0;
+  color: var(--notion-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
