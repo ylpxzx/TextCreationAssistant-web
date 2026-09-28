@@ -79,6 +79,7 @@ export type SourceBookAnalysis = BookAnalysisResult['sourceAnalysis']
 export type OriginalBookPlan = BookAnalysisResult['originalPlan']
 export type BookAnalysisSummary = { id: string; filename: string; title: string; characterCount: number; model: string; createdAt: string; updatedAt: string }
 export type BookAnalysisResponse = BookAnalysisSummary & { result: BookAnalysisResult }
+export type GeneratedShortStory = { title: string; content: string; wordCount: number }
 
 export type ChapterRevisionSummary = {
   id: string

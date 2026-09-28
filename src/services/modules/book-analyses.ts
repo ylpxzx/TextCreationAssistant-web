@@ -1,4 +1,4 @@
-import type { BookAnalysisResponse, BookAnalysisSummary } from '../../types/domain'
+import type { BookAnalysisResponse, BookAnalysisSummary, GeneratedShortStory } from '../../types/domain'
 import { apiUrl, responseError } from '../client/http'
 
 export const bookAnalysesApi = {
@@ -27,5 +27,10 @@ export const bookAnalysesApi = {
   async deleteBookAnalysis(id: string) {
     const response = await fetch(apiUrl(`/v1/book-analyses/${id}`), { method: 'DELETE', credentials: 'include' })
     if (!response.ok) throw await responseError(response)
+  },
+  async createShortStory(id: string, chapterIndexes: number[], targetWords: number) {
+    const response = await fetch(apiUrl(`/v1/book-analyses/${id}/short-stories`), { method: 'POST', credentials: 'include', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ chapterIndexes, targetWords }) })
+    if (!response.ok) throw await responseError(response)
+    return response.json() as Promise<GeneratedShortStory>
   },
 }
